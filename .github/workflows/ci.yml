@@ -1,19 +1,13 @@
-# SRS — [Onlinee  kutubxona tizimi]
-
-## 1. Maqsad
-Tizim [kim uchun] [qanday muammoni] hal qiladi.
-
-## 2. Foydalanuvchilar
-- Talaba / Mijoz
-- Administrator
-
-## 3. Funksional talablar
-1. Foydalanuvchi ro'yxatdan o'ta oladi
-2. Foydalanuvchi ... qila oladi
-3. Administrator ... qila oladi
-4. ...
-5. ...
-
-## 4. Nofunksional talablar
-1. Sahifa 3 soniyada yuklanadi
-2. Tizim o'zbek va rus tillarida ishlaydi
+name: Hujjatlar tekshiruvi
+on: [push]
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: README bormi?
+        run: test -f README.md
+      - name: SRS hujjati bormi?
+        run: test -f docs/SRS.md
+      - name: Yakun
+        run: echo "Barcha hujjatlar joyida!"
